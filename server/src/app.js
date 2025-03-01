@@ -1,16 +1,20 @@
-const express = require('express');
+const express = require('express')
+
+const connectDB = require('../db');
+const config = require('./config');
+const { configureRouter } = require('./router');
+
+const port = config.PORT;
+
 const app = express();
-const port = 5000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+connectDB();
 
-app.get('/_status', (req, res) => {
-  res.send('Test!');
-});
+app.use(express.json());
+
+configureRouter(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`)
 });
 

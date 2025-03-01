@@ -5,7 +5,8 @@ const { AppointmentSchema } = require('./appointment');
 const UserSchema = z.object({
     ...IDSchema.shape,
     ...DateMixin.shape,
-    name: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
     email: z.string(),
     contact: z.string(),
     password: z.string(),

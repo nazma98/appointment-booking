@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/bongodev/appointment-booking#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
