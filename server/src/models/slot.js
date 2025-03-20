@@ -10,6 +10,11 @@ const slotSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Duration is required'],
         },
+        deleted: {
+            type: Boolean,
+            default: false
+        },
+        deletedAt: Date,
     },
     {
         timestamps: true,
