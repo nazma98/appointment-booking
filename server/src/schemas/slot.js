@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { DateMixin, IDSchema } from './mixin';
+
+import { IDSchema, DateMixin } from './mixin.js';
 
 export const slotSchema = z.object({
     ...IDSchema.shape,

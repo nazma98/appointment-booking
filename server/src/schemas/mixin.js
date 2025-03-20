@@ -1,4 +1,4 @@
-const { z } = require('zod');
+import { z } from 'zod';
 
 const IDSchema = z.object({
   _id: z.string(),
