@@ -8,6 +8,7 @@ export const signup = async ({ name, email, mobile, password }) => {
     password,
   });
   await user.save();
-  user.password = undefined;
-  return user;
+  const userObject = user.toObject();
+  delete userObject.password;
+  return userObject;
 };
