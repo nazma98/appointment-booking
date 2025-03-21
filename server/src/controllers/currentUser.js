@@ -1,7 +1,8 @@
+import asyncHandler from "express-async-handler";
 import { logger } from "../config/logger.js";
 import { getCurrentUserById } from "../services/index.js";
 
- export const getcurrentUser = async (req, res) =>{
+ export const getcurrentUser = asyncHandler(async(req, res) =>{
     try {
         const userId = req.user._id;
         if(!userId){
@@ -26,4 +27,4 @@ import { getCurrentUserById } from "../services/index.js";
           error: error.message
     })
 }
-}
+})
