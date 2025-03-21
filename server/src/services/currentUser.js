@@ -1,7 +1,7 @@
-import { User } from '../models/user.js';
+import { User } from '../models/index.js';
 export const getCurrentUserById = async (userId) => {
   try {
-    const currentUser = await User.findById(userId);
+    const currentUser = await User.findById(userId).select('-password');
     if (!currentUser) {
       throw new Error('User not found');
     }
