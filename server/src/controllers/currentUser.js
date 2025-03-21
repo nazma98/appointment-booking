@@ -5,16 +5,17 @@ import { getCurrentUserById } from "../services/index.js";
  export const getcurrentUser = asyncHandler(async(req, res) =>{
     try {
         const userId = req.user._id;
+        // const userId = req.query._id ; //when there is no authentication setup
         if(!userId){
             return res.status(400).json({
-                success: false,
                 message: 'Not authenticiated'
             });
         }
        const user = await getCurrentUserById(userId) 
-       res.status(400).json({
+       res.status(200).json({
         id: user._id,
         email: user.email,
+        mobile: user.mobile,
         role: user.role,
         profile: user.profile
        })
