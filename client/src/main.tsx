@@ -11,6 +11,7 @@ import {
   LoginPage,
   SignupPage,
   Slots,
+  SlotTable,
 } from './pages';
 import QueryProvider from './providers/QueryProvider';
 
@@ -21,18 +22,21 @@ createRoot(document.getElementById('root')!).render(
     <QueryProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />}>
-            <Route path="/book-slot" element={<BookSlotPage />} />
+          <Route path='/' element={<HomePage />}>
+            <Route path='/book-slot' element={<BookSlotPage />} />
           </Route>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="admin" element={<AdminPageLayout />}>
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
+          <Route path='admin' element={<AdminPageLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="slots" element={<Slots />} />
-            <Route path="appointments" element={<Appointments />} />
+            <Route path='slots' element={<Slots />}>
+              <Route path='edit/:slotId' element={<SlotTable />} />
+            </Route>
+            <Route path='appointments' element={<Appointments />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </QueryProvider>
   </StrictMode>
 );
+
