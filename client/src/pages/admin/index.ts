@@ -4,3 +4,4 @@ import Dashboard from './Dashboard';
 import Slots from './Slots';
 
 export { AdminPageLayout, Appointments, Dashboard, Slots };
+
