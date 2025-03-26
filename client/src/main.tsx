@@ -11,11 +11,11 @@ import {
   LoginPage,
   SignupPage,
   Slots,
-  SlotTable,
 } from './pages';
 import QueryProvider from './providers/QueryProvider';
 
 import './index.css';
+import { SlotTable } from './components';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -30,7 +30,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path='admin' element={<AdminPageLayout />}>
             <Route index element={<Dashboard />} />
             <Route path='slots' element={<Slots />}>
-              <Route path='edit/:slotId' element={<SlotTable />} />
+              <Route path='edit/:userId' element={<SlotTable />} />
             </Route>
             <Route path='appointments' element={<Appointments />} />
           </Route>

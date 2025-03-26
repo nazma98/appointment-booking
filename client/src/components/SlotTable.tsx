@@ -49,7 +49,7 @@ export default function SlotTable({ userId }: SlotTableProps) {
               borderBottom: '1px solid #e0e0e0',
             }}
           >
-            Editing Slots for User: {userId}
+            Editing Slots for User with ID {userId}
           </div>
         )}
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
