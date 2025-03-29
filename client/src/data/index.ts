@@ -21,7 +21,7 @@ export const mockSlots: Slot[] = [
     _id: '2',
     name: 'Slot 2',
     description: 'This is slot 2',
-    date: '2025-02-14T00:0:000.000Z',
+    date: '2025-02-14T00:00:00.000Z',
     startTime: '11:00',
     duration: 60,
     executive: {
@@ -386,3 +386,45 @@ export const slotTableRows = [
   },
 ];
 
+export const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+export const timeSlots = [
+  '8 AM - 9 AM',
+  '9 AM - 10 AM',
+  '10 AM - 11 AM',
+  '11 AM - 12 PM',
+  '12 PM - 1 PM',
+  '1 PM - 2 PM',
+  '2 PM - 3 PM',
+  '3 PM - 4 PM',
+  '4 PM - 5 PM',
+  '5 PM - 6 PM',
+  '6 PM - 7 PM',
+  '7 PM - 8 PM',
+  '8 PM - 9 PM',
+  '9 PM - 10 PM',
+  '10 PM - 11 PM',
+  '11 PM - 12 PM',
+  '12 AM - 1 AM',
+  '1 AM - 2 AM',
+  '2 AM - 3 AM',
+  '3 AM - 4 AM',
+  '4 AM - 5 AM',
+  '5 AM - 6 AM',
+  '6 AM - 7 AM',
+  '7 AM - 8 AM',
+];
+
+export const daySlots = [
+  {
+    sunSlot: '',
+  },
+  
+  'sunSlot',
+  'monSlot',
+  'tueSlot',
+  'wedSlot',
+  'thuSlot',
+  'friSlot',
+  'satSlot',
+];

@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { slotTableRows } from '@/data';
+import { slotTableRows, weekDays, timeSlots, daySlots } from '@/data';
 import { Box, Button } from '@mui/material';
 
 type SlotTableProps = {
@@ -56,17 +56,19 @@ export default function SlotTable({ userId }: SlotTableProps) {
           <TableHead>
             <TableRow>
               <StyledTableCell>Time</StyledTableCell>
-              <StyledTableCell>Sunday</StyledTableCell>
-              <StyledTableCell>Monday</StyledTableCell>
-              <StyledTableCell>Tuesday</StyledTableCell>
-              <StyledTableCell>Wednesday</StyledTableCell>
-              <StyledTableCell>Thursday</StyledTableCell>
-              <StyledTableCell>Friday</StyledTableCell>
-              <StyledTableCell>Saturday</StyledTableCell>
+              {weekDays.map((day) => (
+                <StyledTableCell>{ day }</StyledTableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {slotTableRows.map((row) => (
+            { timeSlots.map((slot) => ()
+              <StyledTableCell>{ slot }</StyledTableCell>
+            { daySlots.map((daySlot) => (
+              <StyledTableCell>{ daySlot }</StyledTableCell>
+            ))}
+            ))}
+            {/* {slotTableRows.map((row) => (
               <StyledTableRow key={row.time}>
                 <StyledTableCell component='th' scope='row' sx={{ width: 180 }}>
                   {row.time}
@@ -79,7 +81,7 @@ export default function SlotTable({ userId }: SlotTableProps) {
                 <StyledTableCell>{row.friSlot}</StyledTableCell>
                 <StyledTableCell>{row.saturSlot}</StyledTableCell>
               </StyledTableRow>
-            ))}
+            ))} */}
           </TableBody>
         </Table>
       </TableContainer>
