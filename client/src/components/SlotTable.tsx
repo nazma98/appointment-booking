@@ -31,9 +31,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function SlotTable({}: SlotTableProps) {
   return (
-    <Box sx={{ mt: 2 }}>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <Box sx={{ mt: 3 }}>
+      <TableContainer  sx={{ minWidth: 700, maxHeight:550 }} component={Paper}>
+        <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <StyledTableCell component="th" scope="row" sx={{ width: 180 }}>
@@ -84,12 +84,12 @@ export default function SlotTable({}: SlotTableProps) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box sx={{ display: 'flex', gap: 2 }}>
-        <Button variant="contained" color="secondary">
-          Cancel
-        </Button>
+      <Box sx={{ display: 'flex', flexDirection:'row-reverse', gap: 2 }}>
         <Button variant="contained" color="primary">
           Save Changes
+        </Button>
+        <Button variant="contained" color="secondary">
+          Cancel
         </Button>
       </Box>
     </Box>
