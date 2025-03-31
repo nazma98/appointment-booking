@@ -1,8 +1,8 @@
-import { Outlet } from 'react-router';
+import { SlotTable } from '@/components';
 
 type SlotProps = {};
 
 export default function Slots({}: SlotProps) {
-  return <Outlet />;
+  return <SlotTable />;
 }
 
