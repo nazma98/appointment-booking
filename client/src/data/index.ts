@@ -163,8 +163,6 @@ export const mockSlots: Slot[] = [
   },
 ];
 
-export const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-
 export const timeSlots = [
   '8 AM - 9 AM',
   '9 AM - 10 AM',
@@ -201,3 +199,4 @@ export const daySlots = [
   'friSlot',
   'satSlot',
 ];
+

@@ -6,8 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { weekDays, timeSlots, daySlots } from '@/data';
+import { timeSlots, daySlots } from '@/data';
 import { Box, Button } from '@mui/material';
+import dayjs from 'dayjs';
 
 type SlotTableProps = {};
 
@@ -29,19 +30,46 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const getWeekDates = () => {
+  const today = dayjs();
+  const startOfWeek = today.startOf('week'); 
+  return Array.from({ length: 7 }, (_, i) => startOfWeek.add(i, 'day'));
+};
+
 export default function SlotTable({}: SlotTableProps) {
+  const weekDates = getWeekDates();
+
   return (
     <Box sx={{ mt: 3 }}>
-      <TableContainer  sx={{ minWidth: 700, maxHeight:550 }} component={Paper}>
+      <TableContainer sx={{ minWidth: 700, maxHeight: 550 }} component={Paper}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <StyledTableCell component="th" scope="row" sx={{ width: 180 }}>
                 Time
               </StyledTableCell>
-              {weekDays.map((day) => (
-                <StyledTableCell>{day}</StyledTableCell>
-              ))}
+              {weekDates.map((date, index) => {
+                const isToday = date.isSame(dayjs(), 'day');
+
+                return (
+                  <TableCell
+                    key={index}
+                    align="center"
+                    sx={{
+                      bgcolor: isToday ? 'gray' : 'primary.main', 
+                      color: 'white',
+                      border: '1px solid rgba(224, 224, 224, 1)',
+                    }}
+                  >
+                    <div style={{ fontWeight: 'bold', fontSize: 15 }}>
+                      {date.format('DD')}
+                    </div>
+                    <div style={{ fontSize: 8 }}>
+                      {date.format('ddd').toUpperCase()}
+                    </div>
+                  </TableCell>
+                );
+              })}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -84,7 +112,7 @@ export default function SlotTable({}: SlotTableProps) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box sx={{ display: 'flex', flexDirection:'row-reverse', gap: 2 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row-reverse', gap: 2 }}>
         <Button variant="contained" color="primary">
           Save Changes
         </Button>
@@ -95,3 +123,4 @@ export default function SlotTable({}: SlotTableProps) {
     </Box>
   );
 }
+
