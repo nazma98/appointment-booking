@@ -32,15 +32,35 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const getWeekDates = () => {
   const today = dayjs();
-  const startOfWeek = today.startOf('week'); 
+  const startOfWeek = today.startOf('week');
   return Array.from({ length: 7 }, (_, i) => startOfWeek.add(i, 'day'));
 };
 
 export default function SlotTable({}: SlotTableProps) {
   const weekDates = getWeekDates();
 
+  const isSameMonth = weekDates[0].month() === weekDates[6].month();
+
+  const weekLabel = isSameMonth
+    ? weekDates[0].format('MMMM YYYY')
+    : `${weekDates[0].format('MMM D')} – ${weekDates[6].format('MMM D, YYYY')}`;
+
   return (
     <Box sx={{ mt: 3 }}>
+      <Box>
+        <div
+          style={{
+            fontWeight: 'bold',
+            fontSize: 18,
+            backgroundColor: 'white',
+            color: 'primary.main',
+            textAlign: 'center',
+            margin: 5,
+          }}
+        >
+          {weekLabel}
+        </div>
+      </Box>
       <TableContainer sx={{ minWidth: 700, maxHeight: 550 }} component={Paper}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -56,7 +76,7 @@ export default function SlotTable({}: SlotTableProps) {
                     key={index}
                     align="center"
                     sx={{
-                      bgcolor: isToday ? 'gray' : 'primary.main', 
+                      bgcolor: isToday ? 'gray' : 'primary.main',
                       color: 'white',
                       border: '1px solid rgba(224, 224, 224, 1)',
                     }}
